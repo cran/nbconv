@@ -2,9 +2,9 @@
 % Please edit documentation in R/rnbconv.R
 \name{rnbconv}
 \alias{rnbconv}
-\title{Generates random samples from the convolution of arbitrary negative binomial random variables.}
+\title{Random deviates}
 \usage{
-rnbconv(mus, phis, ps, n.samp)
+rnbconv(mus, phis, ps, n.samp, n.cores = 1)
 }
 \arguments{
 \item{mus}{Vector of individual mean values}
@@ -14,6 +14,8 @@ rnbconv(mus, phis, ps, n.samp)
 \item{ps}{Vector of individual probabilities of success.}
 
 \item{n.samp}{The number of samples per distribution}
+
+\item{n.cores}{The number of CPU cores to use in the evaluation. Allows parallelization.}
 }
 \value{
 A numeric vector of random deviates.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nbconv_params.R
 \name{nbconv_params}
 \alias{nbconv_params}
-\title{Calculates distribution parameters for the convolution of arbitrary negative binomial random variables.}
+\title{Summary statistics}
 \usage{
 nbconv_params(mus, phis, ps)
 }

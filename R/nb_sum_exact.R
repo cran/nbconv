@@ -1,3 +1,5 @@
+#' Furman's PMF
+#'
 #' Implements Furman's exact PMF for the evaluation of the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.
 #'
 #'@param phis Vector of individual dispersion parameters. Equivalent to 'size' in dnbinom.
@@ -18,6 +20,7 @@
 #'
 nb_sum_exact <- function(phis, ps, n.terms = 1000, counts, n.cores = 1, tolerance = 1e-3){
   # Implements the PMF described in https://ssrn.com/abstract=1650365
+  # Adapted from https://github.com/slundberg/NBConvolution.jl/blob/master/src/furman.jl
 
   qs <- 1 - ps
   pmax <- max(ps)

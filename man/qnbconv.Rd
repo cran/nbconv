@@ -2,7 +2,7 @@
 % Please edit documentation in R/qnbconv.R
 \name{qnbconv}
 \alias{qnbconv}
-\title{Calculates the quantile function for the convolution of arbitrary negative binomial random variables.}
+\title{Quantile function}
 \usage{
 qnbconv(
   probs,

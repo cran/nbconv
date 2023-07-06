@@ -2,7 +2,7 @@
 % Please edit documentation in R/dnbconv.R
 \name{dnbconv}
 \alias{dnbconv}
-\title{Calculates the PMF for the convolution of arbitrary negative binomial random variables.}
+\title{Probability mass function}
 \usage{
 dnbconv(
   counts,

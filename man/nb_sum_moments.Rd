@@ -2,7 +2,7 @@
 % Please edit documentation in R/nb_sum_moments.R
 \name{nb_sum_moments}
 \alias{nb_sum_moments}
-\title{Implements the method of moments approximation for the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.}
+\title{Method of moments}
 \usage{
 nb_sum_moments(mus, phis, counts)
 }

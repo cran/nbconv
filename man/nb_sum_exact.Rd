@@ -2,7 +2,7 @@
 % Please edit documentation in R/nb_sum_exact.R
 \name{nb_sum_exact}
 \alias{nb_sum_exact}
-\title{Implements Furman's exact PMF for the evaluation of the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.}
+\title{Furman's PMF}
 \usage{
 nb_sum_exact(phis, ps, n.terms = 1000, counts, n.cores = 1, tolerance = 0.001)
 }

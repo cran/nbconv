@@ -1,3 +1,5 @@
+#' Summary statistics
+#'
 #' Calculates distribution parameters for the convolution of arbitrary negative binomial random variables.
 #'
 #'@param mus Vector of individual mean values
@@ -16,11 +18,27 @@
 nbconv_params <- function(mus, phis, ps){
 
   if (!missing(ps) & !missing(mus)){
-    stop("'mus' and 'ps' both specified", call. = FALSE)
+    stop("mus and ps both specified", call. = FALSE)
   }
 
   if (missing(ps) & missing(mus)){
-    stop("One of 'mus' and 'ps' must be specified", call. = FALSE)
+    stop("One of mus and ps must be specified", call. = FALSE)
+  }
+
+  if ( !missing( ps ) ){
+    if ( any( ps <= 0 ) | any( ps > 1 ) ){
+      stop("ps must be 0 < ps <= 1", call. = FALSE)
+    }
+  }
+
+  if ( any( phis <= 0 ) ){
+    stop("phis must be > 0.", call. = FALSE)
+  }
+
+  if ( !missing( mus ) ){
+    if ( any( mus < 0 ) ){
+      stop("mus must be > 0.", call. = FALSE)
+    }
   }
 
   if (missing(mus) & !missing(ps)){
@@ -45,6 +63,7 @@ nbconv_params <- function(mus, phis, ps){
 
   mean <- k1
   sigma2 <- k2
+  sigma <- sqrt ( sigma2 )
   skewness <- k3 / k2^(3/2)
   ekurtosis <- k4 / k2^2
 
@@ -53,7 +72,7 @@ nbconv_params <- function(mus, phis, ps){
 
   K.mean <- ( mean * pmax / qmax ) - sum( phis )
 
-  params <- c( mean = mean, sigma2 = sigma2, skewness = skewness, ekurtosis = ekurtosis, K.mean = K.mean)
+  params <- c( mean = mean, sigma2 = sigma2, skewness = skewness, ex.kurtosis = ekurtosis, K.mean = K.mean )
 
   return( params )
 }

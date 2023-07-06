@@ -1,3 +1,5 @@
+#' Method of moments
+#'
 #' Implements the method of moments approximation for the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.
 #'
 #'@param mus Vector of individual mean values.

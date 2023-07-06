@@ -2,7 +2,7 @@
 % Please edit documentation in R/nb_sum_saddlepoint.R
 \name{nb_sum_saddlepoint}
 \alias{nb_sum_saddlepoint}
-\title{Implements the saddlepoint approximation for the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.}
+\title{Saddlepoint approximation}
 \usage{
 nb_sum_saddlepoint(mus, phis, counts, normalize = TRUE, n.cores = 1)
 }
@@ -21,6 +21,9 @@ nb_sum_saddlepoint(mus, phis, counts, normalize = TRUE, n.cores = 1)
 A numeric vector of probability densities.
 }
 \description{
+Implements the saddlepoint approximation for the sum of arbitrary NB random variables. Called by other functions. Not intended to be run alone.
+}
+\details{
 Inspired by https://www.martinmodrak.cz/2019/06/20/approximate-densities-for-sums-of-variables-negative-binomials-and-saddlepoint/
 }
 \examples{

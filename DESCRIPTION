@@ -1,6 +1,6 @@
 Package: nbconv
 Title: Evaluate Arbitrary Negative Binomial Convolutions
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(
       "Gregory", "Bedwell",
@@ -15,9 +15,9 @@ Encoding: UTF-8
 RoxygenNote: 7.2.0
 License: GPL (>= 3)
 NeedsCompilation: no
-Packaged: 2023-04-26 12:49:11 UTC; gbedwell
+Packaged: 2023-07-06 18:01:40 UTC; gbedwell
 Author: Gregory Bedwell [aut, cre, cph]
     (<https://orcid.org/0000-0003-0456-0032>)
 Maintainer: Gregory Bedwell <gregoryjbedwell@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-04-27 12:50:02 UTC
+Date/Publication: 2023-07-06 18:20:02 UTC

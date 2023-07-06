@@ -1,3 +1,5 @@
+#' Probability mass function
+#'
 #' Calculates the PMF for the convolution of arbitrary negative binomial random variables.
 #'
 #'@param counts The counts over which the convolution is evaluated. Should be a vector.
@@ -22,26 +24,42 @@
 dnbconv <- function(counts, mus, ps, phis, method = c("exact", "moments", "saddlepoint"),
                     n.terms = 1000, n.cores = 1, tolerance = 1e-3, normalize = TRUE){
 
-  method <- match.arg(method, c("exact", "moments", "saddlepoint"))
+  method <- match.arg( method )
 
   if( method != "exact" & method != "moments" & method != "saddlepoint"){
     stop("method must be one of 'exact', 'moments', or 'saddlepoint'.", call. = FALSE)
   }
 
   if (!missing(ps) & !missing(mus)){
-    stop("'mus' and 'ps' both specified", call. = FALSE)
+    stop("mus and ps both specified", call. = FALSE)
   }
 
   if (missing(ps) & missing(mus)){
-    stop("One of 'mus' and 'ps' must be specified", call. = FALSE)
+    stop("One of mus and ps must be specified", call. = FALSE)
   }
 
-  if( method == "exact" ){
+  if ( !missing( ps ) ){
+    if ( any( ps <= 0 ) | any( ps > 1 ) ){
+      stop("ps must be 0 < ps <= 1", call. = FALSE)
+    }
+  }
+
+  if ( any( phis <= 0 ) ){
+    stop("phis must be > 0.", call. = FALSE)
+  }
+
+  if ( !missing( mus ) ){
+    if ( any( mus < 0 ) ){
+      stop("mus must be > 0.", call. = FALSE)
+    }
+  }
+
+  if ( method == "exact" ){
     if (missing(ps) & !missing(mus)){
       ps <- phis / ( phis + mus )
     }
     if (length(ps) != length(phis)){
-      stop("'ps' and 'phis' must have the same length.", call. = FALSE)
+      stop("ps and phis must have the same length.", call. = FALSE)
     }
   }
 
@@ -50,7 +68,7 @@ dnbconv <- function(counts, mus, ps, phis, method = c("exact", "moments", "saddl
       mus <- phis*(1 - ps)/ps
     }
     if (length(mus) != length(phis)){
-      stop("'mus' and 'phis' must have the same length.", call. = FALSE)
+      stop("mus and phis must have the same length.", call. = FALSE)
     }
   }
 
@@ -61,3 +79,4 @@ dnbconv <- function(counts, mus, ps, phis, method = c("exact", "moments", "saddl
 
   return( pmf )
 }
+

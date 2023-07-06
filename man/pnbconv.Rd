@@ -2,7 +2,7 @@
 % Please edit documentation in R/pnbconv.R
 \name{pnbconv}
 \alias{pnbconv}
-\title{Calculates the CDF for the convolution of arbitrary negative binomial random variables.}
+\title{Cumulative distribution function}
 \usage{
 pnbconv(
   quants,
